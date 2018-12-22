@@ -14,10 +14,7 @@
     },
     "assets": {
     "host01": [
-      {
-        "file": "server.txt",
-        "target": "~/"
-      }
+      {"file": "deployment.yaml", "target": "~/"}
     ]
   },
     "finish": {

@@ -1,0 +1,50 @@
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  name: webapp1
+spec:
+  replicas: 5
+  template:
+    metadata:
+      labels:
+        app: webapp1
+    spec:
+      containers:
+        - name: myapp
+          image: tutum/hello-world
+          ports:
+            - containerPort: 80
+---
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  name: webapp2
+spec:
+  replicas: 2
+  template:
+    metadata:
+      labels:
+        app: webapp2
+    spec:
+      containers:
+        - name: myapp
+          image: tutum/hello-world
+          ports:
+            - containerPort: 80
+---
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  name: webapp3
+spec:
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: webapp3
+    spec:
+      containers:
+        - name: myapp
+          image: tutum/hello-world
+          ports:
+            - containerPort: 80
