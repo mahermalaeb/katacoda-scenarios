@@ -48,3 +48,54 @@ spec:
           image: tutum/hello-world
           ports:
             - containerPort: 80
+---
+kind: Service
+apiVersion: v1
+metadata:
+  name: webapp1-service
+spec:
+  selector:
+    app: webapp1  
+  ports:
+    - protocol: "TCP"
+      # Port accessible inside cluster
+      port: 8080
+      # Port to forward to inside the pod
+      targetPort: 80
+      # Port accessible outside cluster
+      nodePort: 30001
+  type: LoadBalancer
+---
+kind: Service
+apiVersion: v1
+metadata:
+  name: webapp2-service
+spec:
+  selector:
+    app: webapp2 
+  ports:
+    - protocol: "TCP"
+      # Port accessible inside cluster
+      port: 8080
+      # Port to forward to inside the pod
+      targetPort: 80
+      # Port accessible outside cluster
+      nodePort: 30002
+  type: LoadBalancer
+---
+kind: Service
+apiVersion: v1
+metadata:
+  name: webapp3-service
+spec:
+  selector:
+    app: webapp3 
+  ports:
+    - protocol: "TCP"
+      # Port accessible inside cluster
+      port: 8080
+      # Port to forward to inside the pod
+      targetPort: 80
+      # Port accessible outside cluster
+      nodePort: 30003
+  type: LoadBalancer
